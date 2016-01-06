@@ -1,4 +1,4 @@
-package com.example.alex.dacapo;
+package com.alex.dacapo;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.alex.dacapo.utils.LocalStorage;
+import com.example.alex.dacapo.R;
 
 import java.util.ArrayList;
 
