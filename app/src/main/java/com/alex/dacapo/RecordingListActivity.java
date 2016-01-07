@@ -1,18 +1,22 @@
 package com.alex.dacapo;
 
+import android.net.LocalSocket;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.alex.dacapo.utils.LocalStorage;
+import com.alex.dacapo.utils.RecordingListAdapter;
 import com.example.alex.dacapo.R;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class RecordingListActivity extends AppCompatActivity {
@@ -27,6 +31,12 @@ public class RecordingListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         recordingListView = (ListView) findViewById(R.id.recordingList);
+
+        File recordingDir = new File(LocalStorage.recordDir());
+        if(!recordingDir.exists()){
+            String asd = "" + recordingDir.mkdirs();
+        }
+
         updateRecordingList();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -62,6 +72,6 @@ public class RecordingListActivity extends AppCompatActivity {
 
     private void updateRecordingList() {
         recordingList = LocalStorage.listRecordings();
-        recordingListView.setAdapter();
+        recordingListView.setAdapter(new RecordingListAdapter(this, recordingList));
     }
 }

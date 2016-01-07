@@ -1,5 +1,7 @@
 package com.alex.dacapo.utils;
 
+import android.os.Environment;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,7 +10,7 @@ import java.util.Collections;
  * Created by alex on 1/5/16.
  */
 public class LocalStorage {
-    private static final String ROOTPATH = "/sdcard/DaCapo";
+    private static final String ROOTPATH = Environment.getExternalStorageDirectory() + "/DaCapo";
     private static final String RECORDPATH = ROOTPATH + "/recordings";
     private static final String SHEETPATH = ROOTPATH + "/sheets";
 
