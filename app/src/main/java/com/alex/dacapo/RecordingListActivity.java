@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 import com.alex.dacapo.utils.LocalStorage;
 import com.example.alex.dacapo.R;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 
 public class RecordingListActivity extends AppCompatActivity {
 
+    static ListView recordingListView;
     static ArrayList<String> recordingList;
 
     @Override
@@ -24,8 +26,8 @@ public class RecordingListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recording_list);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
+        recordingListView = (ListView) findViewById(R.id.recordingList);
+        updateRecordingList();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +62,6 @@ public class RecordingListActivity extends AppCompatActivity {
 
     private void updateRecordingList() {
         recordingList = LocalStorage.listRecordings();
-
-
+        recordingListView.setAdapter();
     }
 }
