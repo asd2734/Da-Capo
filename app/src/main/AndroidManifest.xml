@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.alex.dacapo">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
@@ -20,6 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.alex.dacapo.RecordingSelectionActivity" />
+        <activity
+            android:name="com.alex.dacapo.NewRecordingActivity"
+            android:label="@string/title_activity_new_recording"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
 package com.alex.dacapo;
 
+import android.content.Intent;
 import android.net.LocalSocket;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.alex.dacapo.utils.LocalStorage;
@@ -31,10 +33,24 @@ public class RecordingListActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         recordingListView = (ListView) findViewById(R.id.recordingList);
+        recordingListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+                intent.setClass(RecordingListActivity.this, RecordingSelectionActivity.class);
+                intent.putExtra("selection", recordingList.get(position));
+                startActivity(intent);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         File recordingDir = new File(LocalStorage.recordDir());
         if(!recordingDir.exists()){
-            String asd = "" + recordingDir.mkdirs();
+            recordingDir.mkdirs();
         }
 
         updateRecordingList();
@@ -43,8 +59,9 @@ public class RecordingListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent();
+                intent.setClass(RecordingListActivity.this, NewRecordingActivity.class);
+                startActivity(intent);
             }
         });
     }
