@@ -22,9 +22,10 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class RecordingListActivity extends AppCompatActivity {
+    static final String LOG_TAG = RecordingListActivity.class.getName();
 
-    static ListView recordingListView;
-    static ArrayList<String> recordingList;
+    private ListView recordingListView;
+    private ArrayList<String> recordingList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +48,6 @@ public class RecordingListActivity extends AppCompatActivity {
 
             }
         });
-
-        File recordingDir = new File(LocalStorage.recordDir());
-        if(!recordingDir.exists()){
-            recordingDir.mkdirs();
-        }
 
         updateRecordingList();
 

@@ -15,6 +15,8 @@ import java.util.ArrayList;
  * Created by alex on 1/5/16.
  */
 public class RecordingListAdapter extends BaseAdapter {
+    static final String LOG_TAG = RecordingListAdapter.class.getName();
+
     private Context context;
     private ArrayList<String> recordingTitles;
     private LayoutInflater inflater;

@@ -13,18 +13,35 @@
     tools:showIn="@layout/activity_new_recording">
 
     <TextView
+        android:id="@+id/recordTimer"
+        android:text="0:00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0:00"
-        android:id="@+id/recordTimer"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:id="@+id/newRecordingTitle"
+        android:hint="Recording Title"
+        android:maxLength="127"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recordTimer"
+        android:layout_margin="20dp" />
+
     <Button
+        android:id="@+id/recordButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Begin Recording"
-        android:id="@+id/recordButton"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/newRecordingSaveButton"
+        android:text="Save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/recordButton" />
 </RelativeLayout>

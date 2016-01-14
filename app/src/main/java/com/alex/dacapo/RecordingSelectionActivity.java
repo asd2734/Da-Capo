@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.example.alex.dacapo.R;
 
 public class RecordingSelectionActivity extends AppCompatActivity {
+    static final String LOG_TAG = RecordingSelectionActivity.class.getName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
