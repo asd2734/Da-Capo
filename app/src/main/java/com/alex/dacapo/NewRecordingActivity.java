@@ -75,14 +75,14 @@ public class NewRecordingActivity extends AppCompatActivity {
                     if (recordingTitle.equals("")) {
                         Toast.makeText(NewRecordingActivity.this, "Invalid title", Toast.LENGTH_SHORT).show();
                     } else {
-                        // Must check existence of temp.3gp and availability of user-given title
+                        // Must check existence of temp.pcm and availability of user-given title
                         File tempFile = new File(audioRecorder.getTempFilename());
                         if (tempFile.exists()) {
                             File newDir = new File(tempFile.getParent(), recordingTitle);
                             if (newDir.exists()) {
                                 Toast.makeText(NewRecordingActivity.this, "Title is already being used", Toast.LENGTH_SHORT).show();
                             } else {
-                                // Saving begins; renaming temp.3gp to match title
+                                // Saving begins; renaming temp.pcm to match title
                                 newDir.mkdir();
                                 File newFile = new File(newDir, recordingTitle + ".pcm");
                                 tempFile.renameTo(newFile);
