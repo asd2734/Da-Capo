@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:fillViewport="true"
     tools:context="com.alex.dacapo.RecordingListActivity"
     tools:showIn="@layout/activity_recording_list">
 
     <ListView
         android:id="@+id/recordingList"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 </android.support.v4.widget.NestedScrollView>

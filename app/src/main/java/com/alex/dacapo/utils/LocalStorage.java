@@ -23,12 +23,10 @@ public class LocalStorage {
             dir.mkdirs();
         }
 
-        if (dir.length() != 0) {
-            File[] files = dir.listFiles();
-            for(File file : files){
-                if(file.isDirectory()){
-                    recordingList.add(file.getName());
-                }
+        File[] files = dir.listFiles();
+        for(File file : files){
+            if(file.isDirectory()){
+                recordingList.add(file.getName());
             }
         }
 

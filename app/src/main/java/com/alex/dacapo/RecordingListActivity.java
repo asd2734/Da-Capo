@@ -83,6 +83,12 @@ public class RecordingListActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateRecordingList();
+    }
+
     private void updateRecordingList() {
         recordingList = LocalStorage.listRecordings();
         recordingListView.setAdapter(new RecordingListAdapter(this, recordingList));

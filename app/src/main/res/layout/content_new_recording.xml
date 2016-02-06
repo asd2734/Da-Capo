@@ -12,9 +12,8 @@
     tools:context="com.alex.dacapo.NewRecordingActivity"
     tools:showIn="@layout/activity_new_recording">
 
-    <TextView
+    <Chronometer
         android:id="@+id/recordTimer"
-        android:text="0:00"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -26,8 +25,8 @@
         android:maxLength="127"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/recordTimer"
-        android:layout_margin="20dp" />
+        android:layout_margin="20dp"
+        android:layout_below="@id/recordTimer"/>
 
     <Button
         android:id="@+id/recordButton"
@@ -44,4 +43,5 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/recordButton" />
+
 </RelativeLayout>
