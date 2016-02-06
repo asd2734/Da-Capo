@@ -19,7 +19,7 @@ public class AudioRecorder {
     private static final int samplingRate = 44100;  // 44100Hz sampling
     private Thread recordingThread;
     private boolean isRecording = false;
-    private String filename = LocalStorage.getRootPath() + "/temp.pcm"; // temp.3gp will be renamed once the user has finished recording
+    private String filename = LocalStorage.getRootPath() + "/temp.pcm"; // temp.pcm will be renamed once the user has finished recording
 
     public void startRecording() {
         recorder = new AudioRecord(MediaRecorder.AudioSource.MIC, samplingRate, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, 2048);
@@ -36,8 +36,6 @@ public class AudioRecorder {
                     while (isRecording) {
                         recorder.read(micBuffer, 0, 1024);
                         try {
-                            // // writes the data to file from buffer
-                            // // stores the voice buffer
                             byte byteBuffer[] = short2byte(micBuffer);
                             os.write(byteBuffer, 0, 1024 * 2);
                         } catch (IOException e) {
